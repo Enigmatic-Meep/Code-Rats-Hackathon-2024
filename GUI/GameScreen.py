@@ -1,6 +1,7 @@
 import pygame_textinput
 import pygame
 from Word_Processing.Scoring import *
+from Word_Processing.letter_generation import *
 
 from pygame.font import Font  # Import Font class for custom font
 
