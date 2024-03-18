@@ -7,5 +7,3 @@ def generate_letters():
         generated.append(letters[index])
         letters.pop(index)
     return generated
-
-print(generate_letters())
