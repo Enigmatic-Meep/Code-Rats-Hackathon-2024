@@ -8,6 +8,7 @@ from Scene import Scene
 from Button import Button
 
 import letter_generation 
+from Word_Processing.Scoring import *
 
 # Set screen size
 screen_width = 800
