@@ -1,5 +1,6 @@
 import pygame_textinput
 import pygame
+from Word_Processing.Scoring import *
 
 from pygame.font import Font  # Import Font class for custom font
 
@@ -87,9 +88,10 @@ class GameScreen(Scene):
             self.user_words.append(self.textinput.value)
             
             # Decide if input is a match
-            if self.textinput.value == "password":
+            '''assign_points(self.textinput.value,)
+                if self.textinput.value == "password":
                 print(f"Correct Word!")
-            
+            '''
             # Reset user input
             self.textinput.value = ""
                 
