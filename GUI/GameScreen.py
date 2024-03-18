@@ -77,6 +77,9 @@ class GameScreen(Scene):
                 # Optionally stop the timer here
                 pygame.time.set_timer(self.timer_event, 0)
 
+                # end_screen = EndScreen(self.scene_manager)
+                self.scene_manager.set_scene("end_screen")
+
 
         if event.type == pygame.KEYDOWN and event.key == pygame.K_RETURN:
             # Print and capture user input

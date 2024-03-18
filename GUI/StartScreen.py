@@ -46,5 +46,5 @@ class StartScreen(Scene):
     def handle_start_click(self):
         # Perform action when start button is clicked
         print("Start button clicked!")
-        game_screen = GameScreen(self.scene_manager)  # Create GameScreen instance
+        # game_screen = GameScreen(self.scene_manager)  # Create GameScreen instance
         self.scene_manager.set_scene("game_screen")  # Switch scene using scene manager
