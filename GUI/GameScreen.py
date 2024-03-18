@@ -41,6 +41,9 @@ class GameScreen(Scene):
         # Initialize random letters to be typed out
         self.letters = letter_generation.generate_letters()
 
+        # Initialize user score to 0
+        self.score = 0
+
         # Create timer
         self.timer_event = pygame.USEREVENT + 1
         pygame.time.set_timer(self.timer_event, 1000)  # 1 second timer
@@ -96,8 +99,12 @@ class GameScreen(Scene):
             self.user_words.append(self.textinput.value)
             
             # Decide if input is a match
-            if self.textinput.value == "password":
+            add = assign_points(self.textinput.value,self.letters)
+            score+=add
+            if add > 0:
                 print(f"Correct Word!")
+            else:
+                print(f"Try again!")
             
             # Reset user input
             self.textinput.value = ""
