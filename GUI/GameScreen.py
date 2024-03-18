@@ -1,13 +1,13 @@
 import pygame_textinput
 import pygame
-from Word_Processing.Scoring import *
-from Word_Processing.letter_generation import *
 
 from pygame.font import Font  # Import Font class for custom font
 
 from SceneManager import SceneManager
 from Scene import Scene
 from Button import Button
+
+import letter_generation 
 
 # Set screen size
 screen_width = 800
@@ -37,10 +37,13 @@ class GameScreen(Scene):
         # Initialize list of user inputted words
         self.user_words = []
 
+        # Initialize random letters to be typed out
+        self.letters = letter_generation.generate_letters()
+
         # Create timer
         self.timer_event = pygame.USEREVENT + 1
         pygame.time.set_timer(self.timer_event, 1000)  # 1 second timer
-        self.countdown_time = 10  # countdown duration (seconds)
+        self.countdown_time = 60  # countdown duration (seconds)
         self.time_remaining = self.countdown_time  # Keep track of remaining time
 
     def draw(self, screen, events):
@@ -52,7 +55,10 @@ class GameScreen(Scene):
         # Draw background image
         screen.blit(self.gameScreenImage, (0, 0))
 
-        # Blit its surface onto the screen
+        self.text = self.font.render(self.letters[0]+ " " + self.letters[1] + " " + self.letters[2] + " " + self.letters[3],True, self.white, self.black)
+        screen.blit(self.text,(screen_width // 2 - 50, screen_height // 2 + 20) )
+
+        # Blit text input onto the screen
         screen.blit(self.textinput.surface, ((screen_width // 2 - 50, screen_height // 2 + 80)))
 
         # Timer countdown
@@ -89,10 +95,9 @@ class GameScreen(Scene):
             self.user_words.append(self.textinput.value)
             
             # Decide if input is a match
-            '''assign_points(self.textinput.value,)
-                if self.textinput.value == "password":
+            if self.textinput.value == "password":
                 print(f"Correct Word!")
-            '''
+            
             # Reset user input
             self.textinput.value = ""
                 

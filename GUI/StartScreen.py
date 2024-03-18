@@ -16,7 +16,7 @@ class StartScreen(Scene):
         # Set font and colors
         self.font = pygame.font.Font(None, 40)  # Choose a font or path to a font file
         self.white = (255, 255, 255)
-        self.black = (0, 0, 0)
+        self.grey = (66, 66, 66)
         self.scale = 15
 
         # Load title image
@@ -26,7 +26,7 @@ class StartScreen(Scene):
         self.running = True
 
         # Create buttons using the Button class
-        self.start_button = Button("Start", (scene_manager.screen_width // 2 - 50, scene_manager.screen_height // 2 + 80), self.white, (100, 100, 100), self.handle_start_click)
+        self.start_button = Button("Start", (scene_manager.screen_width // 2 - 50, scene_manager.screen_height // 2 + 80), self.white, self.grey, self.handle_start_click)
 
     def draw(self, screen, events):
         # Fill screen with color
