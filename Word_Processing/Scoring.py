@@ -13,5 +13,3 @@ def assign_points(entry,letters):
                 score+=1
             f.close()
     return score
-
-print(assign_points("apple",["a","p","l"]))
