@@ -39,7 +39,7 @@ class GameScreen(Scene):
         self.user_words = []
 
         # Initialize random letters to be typed out
-        self.letters = letter_generation.generate_letters()
+        self.letters = generate_letters()
 
         # Initialize user score to 0
         self.score = 0
