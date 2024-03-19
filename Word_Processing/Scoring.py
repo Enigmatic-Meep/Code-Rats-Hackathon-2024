@@ -1,14 +1,13 @@
 from pathlib import Path
 
-data_folder = Path("code/text_files/")
-file_to_open = data_folder / "raw_data.txt"
-
 def assign_points(entry,letters):
+    data_folder = Path("letter_files/")
     word = entry.lower()
     score = 0
     for letter in letters:
         if(letter in word):
-            file = letter+"_f.txt"
+            file_name = letter+"_f.txt"
+            file = data_folder / file_name
             f = open(file,"r")
             if(word in f.read()):
                 score+=1
