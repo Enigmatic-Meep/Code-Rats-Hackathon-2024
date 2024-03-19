@@ -7,7 +7,7 @@ from SceneManager import SceneManager
 from Scene import Scene
 from Button import Button
 
-import letter_generation 
+from Word.Processing.letter_generation import*
 from Word_Processing.Scoring import *
 
 # Set screen size
