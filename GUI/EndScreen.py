@@ -5,6 +5,7 @@ from Scene import Scene
 from Button import Button
 from GameScreen import GameScreen
 from StartScreen import StartScreen
+from pathlib import Path
 
 class EndScreen(Scene):
     def __init__(self, scene_manager):
@@ -21,7 +22,11 @@ class EndScreen(Scene):
         self.scale = 15
 
         # Load title image
-        self.endScreenImage = pygame.image.load("png/EndScreen.png")
+        here = Path(__file__).resolve()
+        root_folder = here.parents[0]
+        name = "png/EndScreen.png"
+        my_path = root_folder / name
+        self.endScreenImage = pygame.image.load(my_path)
 
         # Set game to be running
         self.running = True
