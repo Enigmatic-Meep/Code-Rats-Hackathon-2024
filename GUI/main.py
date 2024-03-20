@@ -23,7 +23,7 @@ end_screen = EndScreen(scene_manager)
 scene_manager.add_scene("start_screen", start_screen)
 scene_manager.add_scene("game_screen", game_screen)
 scene_manager.add_scene("end_screen", end_screen)
-
+ 
 # Set start scene
 scene_manager.set_scene("start_screen")
 
