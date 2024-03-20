@@ -4,6 +4,7 @@ from SceneManager import SceneManager
 from Scene import Scene
 from Button import Button
 from GameScreen import GameScreen
+from pathlib import Path
 
 class StartScreen(Scene):
     def __init__(self, scene_manager):
@@ -20,7 +21,11 @@ class StartScreen(Scene):
         self.scale = 15
 
         # Load title image
-        self.startScreenImage = pygame.image.load("png/StartScreen.png")
+        here = Path(__file__).resolve()
+        root_folder = here.parents[0]
+        name = "png/StartScreen.png"
+        my_path = root_folder / name
+        self.startScreenImage = pygame.image.load(my_path)
 
         # Set game to be running
         self.running = True
