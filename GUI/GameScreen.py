@@ -1,14 +1,16 @@
-import pygame_textinput
 import pygame
+import pygame_textinput
 
 from pygame.font import Font  # Import Font class for custom font
 
 from SceneManager import SceneManager
 from Scene import Scene
 from Button import Button
-
-from Word_Processing.letter_generation import*
-from Word_Processing.Scoring import *
+import sys
+sys.path.insert(1,'./Word_Processing')
+from Scoring import assign_points
+from letter_generation import generate_letters
+from pathlib import Path
 
 # Set screen size
 screen_width = 800
@@ -30,7 +32,11 @@ class GameScreen(Scene):
         self.scale = 15
 
         # Load background image
-        self.gameScreenImage = pygame.image.load("png/GameScreen.png")
+        here = Path(__file__).resolve()
+        root_folder = here.parents[0]
+        name = "png/GameScreen.png"
+        my_path = root_folder / name
+        self.gameScreenImage = pygame.image.load(my_path)
 
         # Create text-input object
         self.textinput = pygame_textinput.TextInputVisualizer()
@@ -99,6 +105,7 @@ class GameScreen(Scene):
             self.user_words.append(self.textinput.value)
             
             # Decide if input is a match
+            data_folder = Path("CODE-RATS-HACKATHON-2024-Main/Word_Processing/letter_files/")
             add = assign_points(self.textinput.value,self.letters)
             score+=add
             if add > 0:
@@ -108,4 +115,3 @@ class GameScreen(Scene):
             
             # Reset user input
             self.textinput.value = ""
-                
