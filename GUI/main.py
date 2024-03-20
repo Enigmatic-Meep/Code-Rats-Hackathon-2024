@@ -1,4 +1,5 @@
 import pygame
+import pygame_textinput
 
 from SceneManager import SceneManager
 
