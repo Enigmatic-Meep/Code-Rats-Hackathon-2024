@@ -7,7 +7,7 @@ class Button:
         self.color = color
         self.click_color = click_color
         self.click_function = click_function
-        self.font = pygame.font.Font(None, 40)  # Choose a font
+        self.font = pygame.font.SysFont("inkfree", 40)  # Choose a font
 
         # Pre-render text for efficiency
         self.text_surface = self.font.render(self.text, True, self.color)

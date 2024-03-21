@@ -107,7 +107,7 @@ class GameScreen(Scene):
             # Decide if input is a match
             data_folder = Path("CODE-RATS-HACKATHON-2024-Main/Word_Processing/letter_files/")
             add = assign_points(self.textinput.value,self.letters)
-            score+=add
+            self.score+=add
             if add > 0:
                 print(f"Correct Word!")
             else:
@@ -115,3 +115,4 @@ class GameScreen(Scene):
             
             # Reset user input
             self.textinput.value = ""
+                

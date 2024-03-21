@@ -42,6 +42,9 @@ class EndScreen(Scene):
         # Draw background image
         screen.blit(self.endScreenImage, (0, 0))
 
+        self.text = self.font.render(self.letters[0]+ " " + self.letters[1] + " " + self.letters[2] + " " + self.letters[3],True, self.white, self.black)
+        screen.blit(self.text,(screen_width // 2 - 50, screen_height // 2 + 20) )
+
         # Draw buttons
         self.retry_button.draw(screen)
         # self.menu_button.draw(screen) <-- no time :(
