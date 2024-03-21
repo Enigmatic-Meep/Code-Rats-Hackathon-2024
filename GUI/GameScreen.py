@@ -59,7 +59,7 @@ class GameScreen(Scene):
         # Create timer
         self.timer_event = pygame.USEREVENT + 1
         pygame.time.set_timer(self.timer_event, 1000)  # 1 second timer
-        self.countdown_time = 5  # countdown duration (seconds)
+        self.countdown_time = 60  # countdown duration (seconds)
         self.time_remaining = self.countdown_time  # Keep track of remaining time
 
     def draw(self, screen, events):
@@ -126,7 +126,7 @@ class GameScreen(Scene):
 
                 #Reset Score
                 self.score = 0
-                
+
                 self.scene_manager.add_scene("end_screen", end_screen)
                 self.scene_manager.set_scene("end_screen")
 
