@@ -1,5 +1,9 @@
 import pygame
+from pygame.locals import *
+from pygame import mixer
 import pygame_textinput
+
+from pathlib import Path
 
 from SceneManager import SceneManager
 
@@ -28,6 +32,13 @@ scene_manager.add_scene("end_screen", end_screen)
  
 # Set start scene
 scene_manager.set_scene("start_screen")
+mixer.init()
+here = Path(__file__).resolve()
+root_folder = here.parents[0]
+name = "musicFiles/TalkingCuteChiptune.wav"
+my_path = root_folder / name
+mixer.music.load(my_path)
+mixer.music.play()
 
 scene_manager.run()
 
