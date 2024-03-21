@@ -17,6 +17,6 @@ def assign_points(entry,letters):
   
             with open(my_path,'r') as f:
                 if(word in f.read()):
-                    score+=1
+                    score+=10
             f.close()
     return score
