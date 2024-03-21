@@ -16,7 +16,7 @@ class EndScreen(Scene):
         self.scene_manager = scene_manager
 
         # Set font and colors
-        self.font = pygame.font.Font(None, 40)  # Choose a font or path to a font file
+        self.font = pygame.font.SysFont("inkfree", 40)  # Choose a font or path to a font file
         self.white = (255, 255, 255)
         self.black = (0, 0, 0)
         self.scale = 15
@@ -41,9 +41,6 @@ class EndScreen(Scene):
 
         # Draw background image
         screen.blit(self.endScreenImage, (0, 0))
-
-        self.text = self.font.render(self.letters[0]+ " " + self.letters[1] + " " + self.letters[2] + " " + self.letters[3],True, self.white, self.black)
-        screen.blit(self.text,(screen_width // 2 - 50, screen_height // 2 + 20) )
 
         # Draw buttons
         self.retry_button.draw(screen)

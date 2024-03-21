@@ -28,7 +28,7 @@ class GameScreen(Scene):
         self.scene_manager = scene_manager
 
         # Set font and colors
-        self.font = pygame.font.Font(None, 40)  # Choose a font or path to a font file
+        self.font = pygame.font.SysFont("inkfree", 40)  # Choose a font or path to a font file
         self.white = (255, 255, 255)
         self.black = (0, 0, 0)
         self.scale = 15
