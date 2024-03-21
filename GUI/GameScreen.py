@@ -7,10 +7,12 @@ from SceneManager import SceneManager
 from Scene import Scene
 from Button import Button
 import sys
-sys.path.insert(1,'./Word_Processing')
-from Scoring import assign_points
-from letter_generation import generate_letters
+import os
 from pathlib import Path
+
+from Word_Processing.Scoring import assign_points
+from Word_Processing.letter_generation import generate_letters
+
 
 # Set screen size
 screen_width = 800
