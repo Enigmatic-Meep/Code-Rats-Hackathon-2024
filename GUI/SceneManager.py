@@ -21,13 +21,14 @@ class SceneManager:
 
   def run(self):
     clock = pygame.time.Clock()
+    dt = 0
 
     while self.running:
       events = pygame.event.get()
 
       # Update and draw current scene if available
       if self.current_scene:
-        # self.current_scene.update(dt)
+        self.current_scene.update(dt)
         self.current_scene.draw(self.screen, events)
 
       # Handle events
@@ -37,7 +38,9 @@ class SceneManager:
         if self.current_scene:
           self.current_scene.handle_events(event)
 
-      clock.tick(60)  # Delta time in milliseconds, capped at 60 FPS
+      # Delta time in milliseconds, capped at 60 FPS
+      # divided by 1000 to have units of seconds for dt
+      dt = clock.tick(60) / 1000 
 
       # Update display
       pygame.display.flip()

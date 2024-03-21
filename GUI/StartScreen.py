@@ -3,7 +3,7 @@ import pygame
 from SceneManager import SceneManager
 from Scene import Scene
 from Button import Button
-from GameScreen import GameScreen
+#from GameScreen import GameScreen
 from pathlib import Path
 
 class StartScreen(Scene):
@@ -31,7 +31,7 @@ class StartScreen(Scene):
         self.running = True
 
         # Create buttons using the Button class
-        self.start_button = Button("Start", (scene_manager.screen_width // 2 - 50, scene_manager.screen_height // 2 + 80), self.white, self.grey, self.handle_start_click)
+        self.start_button = Button("Start", (800 // 2 - 50, 800 // 2 + 80), self.white, self.grey, self.handle_start_click)
 
     def draw(self, screen, events):
         # Fill screen with color
@@ -51,5 +51,5 @@ class StartScreen(Scene):
     def handle_start_click(self):
         # Perform action when start button is clicked
         print("Start button clicked!")
-        # game_screen = GameScreen(self.scene_manager)  # Create GameScreen instance
+        #game_screen = GameScreen(self.scene_manager)  # Create GameScreen instance
         self.scene_manager.set_scene("game_screen")  # Switch scene using scene manager

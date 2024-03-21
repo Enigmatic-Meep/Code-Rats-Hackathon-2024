@@ -3,12 +3,12 @@ import pygame
 from SceneManager import SceneManager
 from Scene import Scene
 from Button import Button
-from GameScreen import GameScreen
+# from GameScreen import GameScreen
 from StartScreen import StartScreen
 from pathlib import Path
 
 class EndScreen(Scene):
-    def __init__(self, scene_manager):
+    def __init__(self, scene_manager, score):
         # Set window title
         pygame.display.set_caption("RATorical Quest - End Screen")
 
@@ -21,6 +21,9 @@ class EndScreen(Scene):
         self.black = (0, 0, 0)
         self.scale = 15
 
+        # initialize score from gamescreen
+        self.score = score
+
         # Load title image
         here = Path(__file__).resolve()
         root_folder = here.parents[0]
@@ -31,9 +34,8 @@ class EndScreen(Scene):
         # Set game to be running
         self.running = True
 
-        # Create buttons using the Button class
-        self.retry_button = Button("Retry", (scene_manager.screen_width // 2 - 50, scene_manager.screen_height // 2 + 200), self.white, (100, 100, 100), self.handle_retry_click)
-        self.menu_button = Button("Menu", (scene_manager.screen_width // 2 - 50, scene_manager.screen_height // 2 + 250), self.white, (100, 100, 100), self.handle_menu_click)
+        # Create button using the Button class
+        self.retry_button = Button("Restart", (scene_manager.screen_width // 2 - 70, scene_manager.screen_height // 2 + 200), self.white, (100, 100, 100), self.handle_retry_click)
 
     def draw(self, screen, events):
         # Fill screen with color
@@ -41,6 +43,10 @@ class EndScreen(Scene):
 
         # Draw background image
         screen.blit(self.endScreenImage, (0, 0))
+
+        # Render and draw score
+        finalScore = self.font.render(f"Final score: {self.score}", True, (255, 255, 255))
+        screen.blit(finalScore, (800 // 2 - 130, 800 // 2 - 60))
 
         # Draw buttons
         self.retry_button.draw(screen)
@@ -53,14 +59,7 @@ class EndScreen(Scene):
 
     def handle_retry_click(self):
         # Perform action when start button is clicked
-        print("Retry button clicked!")
-        game_screen = GameScreen(self.scene_manager)  # Create new GameScreen instance
-        self.scene_manager.add_scene("game_screen", game_screen)
-        self.scene_manager.set_scene("game_screen")  # Switch scene using scene manager
-
-    def handle_menu_click(self):
-        # Perform action when start button is clicked
-        print("Menu button clicked!")
+        print("Restart button clicked!")
         start_screen = StartScreen(self.scene_manager)  # Create new GameScreen instance
         self.scene_manager.add_scene("start_screen", start_screen)
         self.scene_manager.set_scene("start_screen")  # Switch scene using scene manager
